@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>中文名检索 CN Search</h1>
+
+{% if chinesename_list %}
+<ul>
+
+    {% for chinesename in chinesename_list %}
+    <li>
+        <a href="{{ chinesename.get_absolute_url }}">{{ chinesename.name }}</a>
+    </li>
+    {% endfor %}
+
+</ul>
+{% else %}
+<p>There are no chinesename in the database.</p>
+{% endif %}
+{% endblock %}

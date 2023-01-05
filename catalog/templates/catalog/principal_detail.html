@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>{{ principal}}</h1>
+
+<p><strong>First Name:</strong> {{ principal.first_name }}</p>
+<p><strong>Last Name:</strong> {{ principal.Last_name }}</p>
+
+<div style="margin-left:20px;margin-top:20px">
+    <h2>Instances</h2>
+
+    {% for instance in principal.reagentinstance_set.all %}
+    <hr>
+    <p
+        class="{% if instance.status == 'a' %}text-success{% elif instance.status == 'n' %}text-danger{% else %}text-warning{% endif %}">
+        {{ instance.get_status_display }}</p>
+    {% if instance.status != 'r' %}<p><strong>Register Date:</strong> {{instance.register_date}}</p>{% endif %}
+    <p><strong>Name:</strong> {{instance.name}}</p>
+    <p><strong>Principal:</strong> {{instance.principal}}</p>
+    <p class="text-muted"><strong>Id:</strong> {{instance.id}}</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

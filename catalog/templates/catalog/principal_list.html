@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Principal List</h1>
+
+{% if principal_list %}
+<ul>
+
+    {% for principal in principal_list %}
+    <li>
+        <a href="{{ principal.get_absolute_url }}">{{ principal }}</a>
+    </li>
+    {% endfor %}
+
+</ul>
+{% else %}
+<p>There are no principal in the database.</p>
+{% endif %}
+{% endblock %}

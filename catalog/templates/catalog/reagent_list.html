@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Reagent List</h1>
+
+{% if reagent_list %}
+<ul>
+
+    {% for reagent in reagent_list %}
+    <li>
+        <a href="{{ reagent.get_absolute_url }}">{{ reagent.name }}</a> ({{reagent.source}})
+    </li>
+    {% endfor %}
+
+</ul>
+{% else %}
+<p>There are no reagent in the database.</p>
+{% endif %}
+{% endblock %}

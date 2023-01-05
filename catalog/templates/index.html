@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Tanglab Database</h1>
+
+<p>Welcome to <em><a href="http://tanglab.pku.edu.cn/">Tanglab</a> Database</em>, a very basic <a
+        href="https://developer.mozilla.org/zh-CN/docs/Learn/Server-side/Django/Tutorial_local_library_website">Django
+        website</a> developed by <a href="https://github.com/DF-Master/">Yida Jiang</a> </p>
+
+<h2>Dynamic Recode</h2>
+
+<ul>
+    <li><strong>Reagent:</strong> {{ num_reagent }}</li>
+    <li><strong>Instance:</strong> {{ num_instance }}</li>
+    <li><strong>Reagent Instance Neverused:</strong> {{ num_instance_neverused }}</li>
+    <li><strong>Reagent Instance Available:</strong> {{ num_instance_available }}</li>
+    <li><strong>Principal:</strong> {{ num_principal }}</li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Reagent List</h1>
+
+{% if reagentinstance_list %}
+<ul>
+
+    {% for reagentinstance in reagentinstance_list %}
+    <li>
+        <a href="{{ reagentinstance.get_absolute_url }}">{{ reagentinstance.name }}</a> ({{reagentinstance.principal}})
+    </li>
+    {% endfor %}
+
+</ul>
+{% else %}
+<p>There are no reagentinstance in the database.</p>
+{% endif %}
+{% endblock %}

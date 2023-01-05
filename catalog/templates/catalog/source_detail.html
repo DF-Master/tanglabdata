@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>{{ source}}</h1>
+
+<div style="margin-left:20px;margin-top:20px">
+    <h2>Instances</h2>
+
+    {% for reagent in source.reagent_set.all %}
+    <hr>
+    <p><strong>Name:</strong> {{reagent.name}},{{reagent.chinese_name}},{{reagent.english_name}}</p>
+    <p><strong>Tags:</strong> {{reagent.display_tags}}</p>
+    <p><strong>Specification:</strong> {{reagent.specification}}</p>
+    <p class="text-muted"><strong>CAS:</strong> {{reagent.cas}}</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

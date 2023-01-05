@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>{{ reagentinstance.name }}</h1>
+
+<p><strong>Reagent:</strong> {{ reagentinstance.reagent }}</p>
+<p><strong>ID:</strong> {{ reagentinstance.id }}</p>
+<p><strong>Location:</strong> {{ reagentinstance.location }}</p>
+<p><strong>Principal:</strong> {{ reagentinstance.principal }}</p>
+
+<p><strong>Status:</strong> {{ reagentinstance.get_status_display }}</p>
+<p><strong>Date:</strong> {{ reagentinstance.register_date }}</p>
+
+<p><strong>Note:</strong> {{ reagentinstance.note }}</p>
+
+{% endblock %}
