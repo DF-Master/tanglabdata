@@ -75,18 +75,22 @@ class ReagentInstanceAdmin(admin.ModelAdmin):
 @admin.register(Location)
 class LocationAdmin(admin.ModelAdmin):
     inlines = [ReagentInstanceInline]
+    search_fields=('name',)
   
 @admin.register(ChineseName)
 class ChineseNameAdmin(admin.ModelAdmin):
     inlines = [ReagentInline]
+    search_fields=('name',)
     
 @admin.register(EnglishName)
 class EnglishNameAdmin(admin.ModelAdmin):
     inlines = [ReagentInline]
+    search_fields=('name',)
     
 @admin.register(Source)
 class SourceAdmin(admin.ModelAdmin):
     inlines = [ReagentInline]
+    search_fields=('name',)
     
     
 # admin.site.register(Principal)

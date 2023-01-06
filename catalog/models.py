@@ -174,8 +174,8 @@ class ReagentInstance(models.Model):
     name = models.CharField(max_length=200,
                             null=True,
                             blank=True,
-                            default=str( random.randint(100000, 999999))+"-" +
-                            "{:%Y%m%d}".format(datetime.datetime.now()))
+                            default=id.default,help_text=
+        "Change to your favorate name")
     principal = models.ForeignKey('Principal',
                                   on_delete=models.SET_NULL,
                                   null=True,
