@@ -33,7 +33,7 @@ class ReagentAdmin(admin.ModelAdmin):
         "display_tags"
     )
     search_fields=('name','chinese_name__name','english_name__name','purchase_note','note')
-    list_filter = ('source', 'tags','specification')
+    list_filter = ('source', 'tags')
     inlines = [ReagentInstanceInline]
     fieldsets = (
         (None, {
