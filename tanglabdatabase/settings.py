@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-*unhazes+ohe(%8z#2q%ze6r)oo%yjr0oh5yr_333pxb#(y=*@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tanglab.cn','192.168.1.120','tanglabdata.top']
+ALLOWED_HOSTS = ['tanglab.cn','192.168.1.100','tanglabdata.top']
 
 
 # Application definition
