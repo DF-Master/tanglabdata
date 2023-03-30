@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from django.http import JsonResponse, HttpResponse
+import json
 # Create your views here.
 
 from .models import Tags, ChineseName, EnglishName, Location, Source, Principal, Reagent, ReagentInstance
@@ -29,6 +30,32 @@ def index(request):
             'num_principal': num_principal
         },
     )
+
+
+def get_data_by_id(request, id):
+    try:
+        obj_list = ReagentInstance.objects.filter(id__icontains=id)
+        results = []
+        for obj in obj_list:
+            data = {
+                "id": obj.id,
+                "reagent": obj.reagent.name,
+                "register_date": obj.register_date,
+                "name": obj.name,
+                "principal": obj.principal.__str__(),
+                "location": obj.location.name,
+                "status": obj.status,
+                "note": obj.note,
+                # 其他属性
+            }
+            results.append(data)
+        print("Get Data:", results)
+        response = HttpResponse(results,
+                                content_type='application/json; charset=gbk')
+        return response
+    except ReagentInstance.DoesNotExist:
+        # 处理不存在ID的情况
+        return JsonResponse({"error": "Object not found."}, status=404)
 
 
 from django.views import generic
