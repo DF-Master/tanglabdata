@@ -5,7 +5,7 @@ import settings as set
 
 def search_by_id(
     id,
-    host=set.host_url,
+    host=set.host_url + "data/",
 ):
     response = requests.get(host + id)
     if response.status_code == 200:
@@ -50,8 +50,6 @@ if __name__ == '__main__':
                     st.session_state.id = ""
                     response = requests.get(set.host_url + url_dic[status] +
                                             uuid)
-                    print(uuid, set.host_url + url_dic[status] + uuid,
-                          response)
                 except:
                     st.write("Search ID Failed")
 
