@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
-import json
 # Create your views here.
 
 from .models import Tags, ChineseName, EnglishName, Location, Source, Principal, Reagent, ReagentInstance
@@ -30,6 +29,18 @@ def index(request):
             'num_principal': num_principal
         },
     )
+
+
+def update_runout(request, id):
+    try:
+        reagent_instance = ReagentInstance.objects.get(id=id)
+    except ReagentInstance.DoesNotExist:
+        return HttpResponse("Invalid ID")
+
+    reagent_instance.status = 'r'
+    reagent_instance.save()
+
+    return HttpResponse("Status changed to 'r'")
 
 
 def get_data_by_id(request, id):
