@@ -59,7 +59,9 @@ if __name__ == '__main__':
         st.subheader("Print by ID12")
 
         colb1, colb2 = st.columns(2)
-        com_set = colb1.text_input('COM Set', value='COM5', key="com_set")
+        com_set = colb1.text_input('COM Set',
+                                   value='/dev/ttyACM0',
+                                   key="com_set")
         uuid = colb2.text_input('UUID', "", key="uuid")
 
         colc1, colc2, colc3 = st.columns(3)
@@ -101,3 +103,4 @@ if __name__ == '__main__':
         cold1, cold2 = st.columns(2)
         search_here = cold1.button('Search', on_click=search_botton)
         print_here = cold2.button('Print', on_click=print_botton)
+# sudo usermod -a -G dialout $USER

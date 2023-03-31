@@ -9,7 +9,7 @@ import serial.tools.list_ports
 class Communication():
     #初始化
 
-    def __init__(self, com='/dev/ttyUSB0', bps=9600, timeout=1):
+    def __init__(self, com='/dev/ttyACM0', bps=9600, timeout=1):
         global Ret
         try:
             self.main_engine_ser = serial.Serial(port=com,
@@ -140,7 +140,7 @@ class Communication():
 if __name__ == '__main__':
     Communication.Print_Used_Com()
     channel_1 = Communication(
-        com="COM5",
+        com="/dev/ttyACM0",
         bps=115200,
     )
     channel_1.Print_Name()
