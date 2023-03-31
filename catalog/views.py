@@ -43,6 +43,42 @@ def update_runout(request, id):
     return HttpResponse("Status changed to 'r'")
 
 
+def update_neverused(request, id):
+    try:
+        reagent_instance = ReagentInstance.objects.get(id=id)
+    except ReagentInstance.DoesNotExist:
+        return HttpResponse("Invalid ID")
+
+    reagent_instance.status = 'n'
+    reagent_instance.save()
+
+    return HttpResponse("Status changed to 'n'")
+
+
+def update_occupied(request, id):
+    try:
+        reagent_instance = ReagentInstance.objects.get(id=id)
+    except ReagentInstance.DoesNotExist:
+        return HttpResponse("Invalid ID")
+
+    reagent_instance.status = 'o'
+    reagent_instance.save()
+
+    return HttpResponse("Status changed to 'o'")
+
+
+def update_available(request, id):
+    try:
+        reagent_instance = ReagentInstance.objects.get(id=id)
+    except ReagentInstance.DoesNotExist:
+        return HttpResponse("Invalid ID")
+
+    reagent_instance.status = 'a'
+    reagent_instance.save()
+
+    return HttpResponse("Status changed to 'a'")
+
+
 def get_data_by_id(request, id):
     try:
         obj_list = ReagentInstance.objects.filter(id__icontains=id)

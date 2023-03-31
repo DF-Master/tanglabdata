@@ -38,5 +38,14 @@ urlpatterns = [
          views.EnglishNameDetailView.as_view(),
          name='english_name-detail'),
     path('data/<str:id>/', views.get_data_by_id, name='get_data_by_id'),
-    path('update-runout/<str:id>/', views.update_runout, name='update-runout')
+    path('update-runout/<str:id>/', views.update_runout, name='update-runout'),
+    path('update-neverused/<str:id>/',
+         views.update_neverused,
+         name='update-neverused'),
+    path('update-available/<str:id>/',
+         views.update_available,
+         name='update-available'),
+    path('update-occupied/<str:id>/',
+         views.update_occupied,
+         name='update-occupied/'),
 ]
