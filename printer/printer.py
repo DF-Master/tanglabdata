@@ -6,7 +6,7 @@ import streamlit as st
 
 def search_by_id(
     id,
-    host=set.host_url,
+    host=set.host_url + "data/",
 ):
     response = requests.get(host + id)
     if response.status_code == 200:
@@ -42,8 +42,6 @@ def print_id(com, id12, name, date, manager, location, note, bps=115200):
 
 
 if __name__ == '__main__':
-    # print(search_by_id("500"))
-
     st.title("Tanglab-Digital-Printer-WebUI")
     st.caption('made by [Yida](https://github.com/DF-Master) --230330 update!',
                unsafe_allow_html=True)

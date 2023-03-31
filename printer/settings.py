@@ -36,4 +36,4 @@ pagePrint_code = bytes([0x1A, 0x4F, 0x00])  # 1A 4F 00（页打印）
 defaultEndCode = pageEnd_code + pagePrint_code
 
 # Server
-host_url = "http://tanglabdata.top:7860/catalog/data/"
+host_url = "http://tanglabdata.top:7860/catalog/"
