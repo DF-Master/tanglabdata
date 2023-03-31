@@ -3,11 +3,11 @@ from django.urls import reverse  #Used to generate URLs by reversing the URL pat
 
 # ManyToManyField
 
+
 class Tags(models.Model):
     name = models.CharField(
         max_length=200,
         help_text="Enter a Tag in English (e.g. Toxic, Avoid Light)")
-
 
     class Meta:
         ordering = ['name']
@@ -127,7 +127,8 @@ class Reagent(models.Model):
         help_text=
         'Enter a <a href="https://en.wikipedia.org/wiki/CAS_Registry_Number">CAS</a> (e.g. 921-60-8)',
         null=True,
-        blank=True,verbose_name='CAS')
+        blank=True,
+        verbose_name='CAS')
     # Other Information
     purchase_note = models.CharField(
         max_length=200,
@@ -147,9 +148,10 @@ class Reagent(models.Model):
 
     def get_absolute_url(self):
         return reverse('reagent-detail', args=[str(self.id)])
-    
+
     def display_tags(self):
-        return ', '.join([tags.name for tags in self.tags.all()[:3] ])
+        return ', '.join([tags.name for tags in self.tags.all()[:3]])
+
     display_tags.short_description = 'Tags'
 
 
@@ -174,8 +176,8 @@ class ReagentInstance(models.Model):
     name = models.CharField(max_length=200,
                             null=True,
                             blank=True,
-                            default=id.default,help_text=
-        "Change to your favorate name")
+                            default=id.default,
+                            help_text="Change to your favorate name")
     principal = models.ForeignKey('Principal',
                                   on_delete=models.SET_NULL,
                                   null=True,
@@ -202,7 +204,7 @@ class ReagentInstance(models.Model):
                             blank=True)
 
     class Meta:
-        ordering = ["-register_date","name"]
+        ordering = ["-register_date", "name"]
 
     def __str__(self):
         return '%s (%s)' % (self.id, self.reagent.name)

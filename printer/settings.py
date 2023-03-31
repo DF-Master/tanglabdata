@@ -18,7 +18,7 @@ oneDHeight_code = bytes([0x4B])  # 4B（条码高度）
 oneDWeight_code = bytes([0x02])  # 02（条码宽度）
 oneDDegree_code = bytes([0x00])  # 00（旋转角度）
 defaultOneDCode = oneDPrint_code + oneDX_code + oneDY_code + oneDType_code + oneDHeight_code + oneDWeight_code + oneDDegree_code
-oneDDefault_code = "e038ba45c47d".encode(
+oneDDefaultCode = "e038ba45c47d".encode(
     "utf-8")  # （条码内容“c33ca4a3-fa26-440e-8c34-e038ba45c47d”）
 end_code = bytes([0x00])  # 00（结束）
 
@@ -34,3 +34,6 @@ def printWord(name, y=108, size=0):
 pageEnd_code = bytes([0x1A, 0x5D, 0x00])  # 1A 5D 00（页结束）
 pagePrint_code = bytes([0x1A, 0x4F, 0x00])  # 1A 4F 00（页打印）
 defaultEndCode = pageEnd_code + pagePrint_code
+
+# Server
+host_url = "http://tanglabdata.top:7860/catalog/data/"
