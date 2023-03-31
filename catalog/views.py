@@ -38,9 +38,9 @@ def get_data_by_id(request, id):
         results = []
         for obj in obj_list:
             data = {
-                "id": obj.id,
+                "id": str(obj.id),
                 "reagent": obj.reagent.name,
-                "register_date": obj.register_date,
+                "register_date": str(obj.register_date),
                 "name": obj.name,
                 "principal": obj.principal.__str__(),
                 "location": obj.location.name,
@@ -49,9 +49,13 @@ def get_data_by_id(request, id):
                 # 其他属性
             }
             results.append(data)
-        print("Get Data:", results)
-        response = HttpResponse(results,
-                                content_type='application/json; charset=gbk')
+        # print("Get Data:", results)
+        response = JsonResponse({"results": results},
+                                json_dumps_params={'ensure_ascii': False})
+        response['content-type'] = 'application/json; charset=utf-8'
+
+        # response = HttpResponse(results,
+        #                         content_type='application/json; charset=utf-8')
         return response
     except ReagentInstance.DoesNotExist:
         # 处理不存在ID的情况
