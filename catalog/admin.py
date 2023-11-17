@@ -28,8 +28,15 @@ class ReagentInline(admin.TabularInline):
 @admin.register(Reagent)
 class ReagentAdmin(admin.ModelAdmin):
     list_display = ('name', 'chinese_name', 'english_name', "display_tags")
-    search_fields = ('name', 'chinese_name__name', 'english_name__name',
-                     'purchase_note', 'note')
+    search_fields = (
+        'name',
+        'chinese_name__name',
+        'english_name__name',
+        'purchase_note',
+        'note',
+        'source__name',
+        'cas',
+    )
     autocomplete_fields = ["chinese_name", "english_name", "source"]
     filter_horizontal = ('tags', )
     list_filter = ('source', 'tags')
