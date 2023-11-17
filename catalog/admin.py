@@ -55,7 +55,11 @@ class ReagentInstanceAdmin(admin.ModelAdmin):
     list_display = ('name', 'status', 'register_date')
     list_filter = ('status', 'register_date', 'principal')
     search_fields = ('reagent__name', 'name', 'id', 'location__name',
-                     'principal__first_name', 'principal__last_name', 'note')
+                     'principal__first_name', 'principal__last_name', 'note',
+                     'reagent__chinese_name__name',
+                     'reagent__english_name__name', 'reagent__purchase_note',
+                     'reagent__note', 'reagent__source__name', 'reagent__cas',
+                     'reagent__specification', 'reagent__tags__name')
     autocomplete_fields = ["reagent", "location", "principal"]
     fieldsets = (
         (None, {
