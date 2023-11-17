@@ -15,6 +15,7 @@ admin.site.register(Tags)
 
 
 class ReagentInstanceInline(admin.TabularInline):
+
     model = ReagentInstance
     extra = 0
 
@@ -98,6 +99,7 @@ class SourceAdmin(admin.ModelAdmin):
 class PrincipalAdmin(admin.ModelAdmin):
     list_display = ('last_name', 'first_name')
     inlines = [ReagentInstanceInline]
+    search_fields = ('name', )
     # fields = ['first_name', 'last_name']
 
 
