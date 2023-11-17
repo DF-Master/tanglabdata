@@ -31,6 +31,7 @@ class ReagentAdmin(admin.ModelAdmin):
     search_fields = ('name', 'chinese_name__name', 'english_name__name',
                      'purchase_note', 'note')
     autocomplete_fields = ["chinese_name", "english_name", "source"]
+    filter_horizontal = ('tags', )
     list_filter = ('source', 'tags')
     inlines = [ReagentInstanceInline]
     fieldsets = (
